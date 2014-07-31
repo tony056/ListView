@@ -6,9 +6,13 @@ import java.util.List;
 import java.util.Map;
 
 import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -16,6 +20,18 @@ import android.widget.SimpleAdapter;
 public class MainActivity extends ActionBarActivity {
 
 	private ListView listView;
+	private final static String[] urls = {
+		"http://www.google.com/doodles/moon-festival-mid-autumn-festival-2012",
+		"http://www.google.com/doodles/anton-bernolaks-250th-birthday",
+		"http://www.google.com/doodles/niels-bohrs-127th-birthday",
+		"http://www.google.com/doodles/brazilian-elections-2012",
+		"http://www.google.com/doodles/chuseok-2012",
+		"http://www.google.com/doodles/david-unaipons-140th-birthday",
+		"http://www.google.com/doodles/francisco-gabilondo-solers-105th-birthday",
+		"http://www.google.com/doodles/brian-o-nuallains-101st-birthday",
+		"http://www.google.com/doodles/german-reunification-day-2012",
+		"http://www.google.com/doodles/janusz-korczaks-year"
+};
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +62,19 @@ public class MainActivity extends ActionBarActivity {
 				R.layout.listitem, new String[] { "image", "text" }, new int[] {
 						R.id.imageView1, R.id.textView1 });
 		listView.setAdapter(simpleAdapter);
+		listView.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				String url = urls[position];
+				Intent intent = new Intent();
+				intent.setClass(MainActivity.this, WebActivity.class);
+				intent.putExtra("url", url);
+				MainActivity.this.startActivity(intent);
+				
+			}
+		});
 
 		// 1: only text
 		// 1: array 1 ~ 8

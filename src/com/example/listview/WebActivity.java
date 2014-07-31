@@ -4,12 +4,21 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.webkit.WebView;
 
 public class WebActivity extends ActionBarActivity{
+	
+	private WebView webView;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
 		setContentView(R.layout.webactivity);
+		String url = getIntent().getStringExtra("url");
+		
+		webView = (WebView) findViewById(R.id.webView1);
+		webView.loadUrl(url);
 	}
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
