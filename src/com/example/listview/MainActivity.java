@@ -1,11 +1,17 @@
 package com.example.listview;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -16,10 +22,30 @@ public class MainActivity extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		listView = (ListView) findViewById(R.id.listView1);
-		String[] data = { "1", "2", "3", "4", "5", "6", "7", "8" };
-		ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,
-				android.R.layout.simple_list_item_1, data);
-		listView.setAdapter(arrayAdapter);
+		// String[] data = { "1", "2", "3", "4", "5", "6", "7", "8" };
+		// ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,
+		// android.R.layout.simple_list_item_1, data);
+		// listView.setAdapter(arrayAdapter);
+
+		int[] imgSrc = { R.drawable.g0, R.drawable.g1, R.drawable.g2,
+				R.drawable.g3, R.drawable.g4, R.drawable.g5, R.drawable.g6,
+				R.drawable.g7, R.drawable.g8, R.drawable.g9 };
+
+		String[] text = { "image0", "image1", "image2", "image3", "image4",
+				"image5", "image6", "image7", "image8", "image9" };
+		List<Map<String, Object>> data = new ArrayList<Map<String, Object>>();
+
+		for (int i = 0; i < imgSrc.length; i++) {
+			Map<String, Object> item = new HashMap<String, Object>();
+			item.put("image", imgSrc[i]);
+			item.put("text", text[i]);
+			data.add(item);
+		}
+
+		SimpleAdapter simpleAdapter = new SimpleAdapter(this, data,
+				R.layout.listitem, new String[] { "image", "text" }, new int[] {
+						R.id.imageView1, R.id.textView1 });
+		listView.setAdapter(simpleAdapter);
 
 		// 1: only text
 		// 1: array 1 ~ 8
