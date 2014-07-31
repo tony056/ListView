@@ -1090,7 +1090,6 @@ containing a value of this type.
         public static final int ic_launcher=0x7f020061;
     }
     public static final class id {
-        public static final int LinearLayout2=0x7f05003f;
         public static final int action_bar=0x7f05001c;
         public static final int action_bar_activity_content=0x7f050015;
         public static final int action_bar_container=0x7f05001b;
@@ -1154,6 +1153,7 @@ containing a value of this type.
         public static final int top_action_bar=0x7f050020;
         public static final int up=0x7f050021;
         public static final int useLogo=0x7f050003;
+        public static final int webView1=0x7f05003f;
         public static final int withText=0x7f05000c;
     }
     public static final class integer {
@@ -1209,7 +1209,7 @@ containing a value of this type.
         public static final int activity_main=0x7f030018;
         public static final int listitem=0x7f030019;
         public static final int support_simple_spinner_dropdown_item=0x7f03001a;
-        public static final int test=0x7f03001b;
+        public static final int webactivity=0x7f03001b;
     }
     public static final class menu {
         public static final int main=0x7f0c0000;
